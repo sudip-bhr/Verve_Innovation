@@ -1,0 +1,112 @@
+/* ═══════════════════════════════════════════
+   Verve Innovation — Design Tokens
+   CSS Custom Properties for dark/light themes
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400&display=swap');
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Libre Caslon Text';
+  src: url('/fonts/libre-caslon-text-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Dark Mode (default) ──────────────────── */
+
+:root,
+[data-theme="dark"] {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 100%;
+
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 100%;
+
+  --primary: 36 100% 50%;
+  --primary-foreground: 0 0% 0%;
+
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 63%;
+
+  --accent: 216 100% 50%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 16%;
+  --input: 0 0% 15%;
+  --ring: 36 100% 50%;
+
+  --radius: 0.75rem;
+
+  /* Verve-specific tokens */
+  --verve-bg-primary: #000000;
+  --verve-bg-secondary: #131313;
+  --verve-bg-elevated: #1A1A1A;
+  --verve-bg-nav: rgba(30, 30, 30, 0.75);
+  --verve-text-primary: #FFFFFF;
+  --verve-text-secondary: #A0A0A0;
+  --verve-text-muted: #666666;
+  --verve-border: #2A2A2A;
+  --verve-accent-orange: #FF9900;
+  --verve-accent-blue: #4D8FFF;
+}
+
+/* ── Light Mode ───────────────────────────── */
+
+[data-theme="light"] {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 7%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 7%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 7%;
+
+  --primary: 36 100% 50%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 10%;
+
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
+
+  --accent: 216 100% 50%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 36 100% 50%;
+
+  /* Verve-specific tokens — light */
+  --verve-bg-primary: #FFFFFF;
+  --verve-bg-secondary: #F5F5F5;
+  --verve-bg-elevated: #FFFFFF;
+  --verve-bg-nav: rgba(255, 255, 255, 0.8);
+  --verve-text-primary: #111111;
+  --verve-text-secondary: #555555;
+  --verve-text-muted: #999999;
+  --verve-border: #E0E0E0;
+  --verve-accent-orange: #FF9900;
+  --verve-accent-blue: #0067FF;
+}

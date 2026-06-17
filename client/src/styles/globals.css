@@ -1,0 +1,105 @@
+@import './tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Explicit keyframes for inline-style animation references ── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.95); }
+}
+
+/* ── Base Styles ──────────────────────────── */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: rgba(255, 153, 0, 0.3);
+    color: inherit;
+  }
+
+  /* Scrollbar styling (Webkit) */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--verve-bg-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--verve-text-muted);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--verve-text-secondary);
+  }
+}
+
+/* ── Utility Classes ──────────────────────── */
+
+@layer utilities {
+  .text-gradient-orange {
+    @apply bg-gradient-to-r from-verve-orange to-amber-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-verve-blue to-verve-blue-light bg-clip-text text-transparent;
+  }
+
+  .gradient-cta-band {
+    background: linear-gradient(135deg, rgb(0, 103, 255) 0%, #4d8fff 35%, rgb(255, 153, 0) 100%);
+  }
+
+  .gradient-discovery {
+    background: linear-gradient(90deg, #FF9900 0%, #FFB84D 100%);
+  }
+
+  .glass-nav {
+    background: var(--verve-bg-nav);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .section-padding {
+    padding-left: clamp(1.5rem, 5vw, 7.5rem);
+    padding-right: clamp(1.5rem, 5vw, 7.5rem);
+    padding-top: clamp(4rem, 8vh, 8rem);
+    padding-bottom: clamp(4rem, 8vh, 8rem);
+  }
+
+  /* Hover transition base */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 10px 40px -10px rgba(255, 153, 0, 0.15);
+  }
+}
