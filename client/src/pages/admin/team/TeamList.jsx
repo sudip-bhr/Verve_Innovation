@@ -29,7 +29,7 @@ export default function TeamList() {
         <div className="flex items-center gap-3">
           {row.photo ? (
             <img 
-              src={row.photo.startsWith('http') || row.photo.startsWith('data:') ? row.photo : `http://localhost:5001${row.photo}`} 
+              src={row.photo.startsWith('http') || row.photo.startsWith('data:') ? row.photo : `${import.meta.env.VITE_API_BASE_URL?.replace('/api', '') || 'http://localhost:5001'}${row.photo}`} 
               alt={row.name} 
               className="w-10 h-10 rounded-full object-cover border border-white/10" 
             />

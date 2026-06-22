@@ -29,7 +29,7 @@ export default function BlogList() {
         <div className="flex items-center gap-3">
           {row.coverImage && (
             <img 
-              src={row.coverImage.startsWith('http') || row.coverImage.startsWith('data:') ? row.coverImage : `http://localhost:5001${row.coverImage}`} 
+              src={row.coverImage.startsWith('http') || row.coverImage.startsWith('data:') ? row.coverImage : `${import.meta.env.VITE_API_BASE_URL?.replace('/api', '') || 'http://localhost:5001'}${row.coverImage}`} 
               alt={row.title} 
               className="w-10 h-10 rounded-md object-cover" 
             />

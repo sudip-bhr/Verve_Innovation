@@ -29,7 +29,7 @@ export default function TestimonialsList() {
         <div className="flex items-center gap-3">
           {row.authorPhoto ? (
             <img 
-              src={row.authorPhoto.startsWith('http') || row.authorPhoto.startsWith('data:') ? row.authorPhoto : `http://localhost:5001${row.authorPhoto}`} 
+              src={row.authorPhoto.startsWith('http') || row.authorPhoto.startsWith('data:') ? row.authorPhoto : `${import.meta.env.VITE_API_BASE_URL?.replace('/api', '') || 'http://localhost:5001'}${row.authorPhoto}`} 
               alt={row.authorName} 
               className="w-10 h-10 rounded-full object-cover border border-white/10" 
             />
