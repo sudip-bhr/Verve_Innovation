@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/site/SEO';
 import { motion } from 'framer-motion';
 import api from '../lib/api';
 import { staggerContainer, staggerItem } from '../lib/motionVariants';
@@ -8,7 +8,6 @@ import CaseStudyCard from '../components/site/cases/CaseStudyCard';
 import { CasesGridSkeleton } from '../components/ui/Skeletons';
 import GradientBand from '../components/site/GradientBand';
 // revisit: switch to server-side filtering if case count > ~40
-
 
 const CATEGORIES = ['All', 'Digital Products', 'Software', 'Mobile', 'Marketing'];
 
@@ -34,10 +33,10 @@ export default function Cases() {
 
   return (
     <>
-      <Helmet>
-        <title>Our Work | Verve Innovation</title>
-        <meta name="description" content="Explore our portfolio of premium digital products and software solutions." />
-      </Helmet>
+      <SEO 
+        title="Our Work" 
+        description="Explore our portfolio of premium digital products and software solutions." 
+      />
 
       {/* Hero Header */}
       <section className="pt-32 pb-16 px-6">

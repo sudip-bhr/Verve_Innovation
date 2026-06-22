@@ -1,10 +1,26 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/site/SEO';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import api from '../lib/api';
 import { staggerContainer, staggerItem, fadeInUp } from '../lib/motionVariants';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Verve Innovation",
+  "image": "https://verveinnovation.com/logo.png",
+  "email": "hello@verveinnovation.com.np",
+  "telephone": "+977 1 4XXXXXX",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Innovation Hub, 4th Floor, Jamal",
+    "addressLocality": "Kathmandu",
+    "addressRegion": "Bagmati",
+    "addressCountry": "NP"
+  }
+};
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -45,10 +61,11 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us | Verve Innovation</title>
-        <meta name="description" content="Get in touch to start your next digital project." />
-      </Helmet>
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch to start your next digital project." 
+        schema={localBusinessSchema}
+      />
 
       <section className="pt-32 pb-24 px-6 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto w-full">

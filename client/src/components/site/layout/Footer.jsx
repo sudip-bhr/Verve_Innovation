@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import darkLogo from '../../../assets/logo/Dark_Theme_Logo.svg';
-import lightLogo from '../../../assets/logo/Light_Theme_Logo.svg';
+const darkLogo = 'https://res.cloudinary.com/dgcgovg0x/image/upload/v1782109440/Dark_Theme_Logo.svg';
+const lightLogo = 'https://res.cloudinary.com/dgcgovg0x/image/upload/v1782109442/Light_Theme_Logo.svg';
 export default function Footer() {
   const navLinks = [
     { name: 'Solutions', path: '/' },
@@ -51,8 +51,8 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 lg:space-x-12">
             <div className="flex space-x-6">
               <a href="#" className="hover:text-verve-text-primary transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-verve-text-primary transition-colors">Instagram</a>
-              <a href="#" className="hover:text-verve-text-primary transition-colors">Twitter</a>
+              <a href="https://www.facebook.com/profile.php?id=61590618466746" target="_blank" rel="noopener noreferrer" className="hover:text-verve-text-primary transition-colors">Facebook</a>
+              <a href="https://www.instagram.com/verveinnovation/" target="_blank" rel="noopener noreferrer" className="hover:text-verve-text-primary transition-colors">Instagram</a>
             </div>
             <div className="flex space-x-6">
               <a href="#" className="hover:text-verve-text-primary transition-colors">Privacy Policy</a>

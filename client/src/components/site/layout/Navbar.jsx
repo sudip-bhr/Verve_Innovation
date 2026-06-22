@@ -4,8 +4,8 @@ import { useTheme } from '../../../hooks/useTheme';
 import { cn } from '../../../lib/utils';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import api from '../../../lib/api';
-import darkLogo from '../../../assets/logo/Dark_Theme_Logo.svg';
-import lightLogo from '../../../assets/logo/Light_Theme_Logo.svg';
+const darkLogo = 'https://res.cloudinary.com/dgcgovg0x/image/upload/v1782109440/Dark_Theme_Logo.svg';
+const lightLogo = 'https://res.cloudinary.com/dgcgovg0x/image/upload/v1782109442/Light_Theme_Logo.svg';
 
 export default function Navbar() {
   const { isDark, toggleTheme } = useTheme();

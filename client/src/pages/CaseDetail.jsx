@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/site/SEO';
 import { ArrowLeft } from 'lucide-react';
 import api from '../lib/api';
 
@@ -33,12 +33,35 @@ export default function CaseDetail() {
 
   const coverImage = caseStudy.coverImage || `https://picsum.photos/seed/${caseStudy.slug}/1920/1080`;
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": caseStudy.title,
+    "image": [coverImage],
+    "author": {
+      "@type": "Organization",
+      "name": "Verve Innovation"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Verve Innovation",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://verveinnovation.com/logo.png"
+      }
+    },
+    "description": caseStudy.summary,
+  };
+
   return (
     <>
-      <Helmet>
-        <title>{caseStudy.title} | Verve Innovation</title>
-        <meta name="description" content={caseStudy.summary} />
-      </Helmet>
+      <SEO 
+        title={caseStudy.title}
+        description={caseStudy.summary}
+        type="article"
+        image={coverImage}
+        schema={articleSchema}
+      />
 
       <article className="pt-24 md:pt-32 pb-24">
         {/* Header */}

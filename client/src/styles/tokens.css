@@ -3,22 +3,8 @@
    CSS Custom Properties for dark/light themes
    ═══════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&family=Libre+Caslon+Text:ital@0;1&display=swap');
 
-@font-face {
-  font-family: 'Space Grotesk';
-  src: url('/fonts/space-grotesk-700.woff2') format('woff2');
-  font-weight: 700;
-  font-display: optional;
-}
-
-@font-face {
-  font-family: 'Libre Caslon Text';
-  src: url('/fonts/libre-caslon-text-italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
 
 /* ── Dark Mode (default) ──────────────────── */
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/site/SEO';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -16,10 +16,10 @@ export default function Services() {
 
   return (
     <>
-      <Helmet>
-        <title>Our Services | Verve Innovation</title>
-        <meta name="description" content="Comprehensive digital solutions from design to deployment." />
-      </Helmet>
+      <SEO 
+        title="Our Services" 
+        description="Comprehensive digital solutions from design to deployment." 
+      />
 
       {/* Hero */}
       <section className="pt-32 pb-20 px-6">

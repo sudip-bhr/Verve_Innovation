@@ -1,18 +1,18 @@
 import { createContext, useState, useEffect, useCallback } from 'react';
 
 export const ThemeContext = createContext({
-  theme: 'dark',
-  isDark: true,
+  theme: 'light',
+  isDark: false,
   toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
-    // Read from localStorage (fallback to dark)
+    // Read from localStorage (fallback to light)
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('verve-theme') || 'dark';
+      return localStorage.getItem('verve-theme') || 'light';
     }
-    return 'dark';
+    return 'light';
   });
 
   const isDark = theme === 'dark';

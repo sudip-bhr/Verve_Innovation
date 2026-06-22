@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/site/SEO';
 import { motion } from 'framer-motion';
 import api from '../lib/api';
 import { staggerContainer, staggerItem, fadeInUp } from '../lib/motionVariants';
@@ -20,10 +20,10 @@ export default function About() {
 
   return (
     <>
-      <Helmet>
-        <title>About Us | Verve Innovation</title>
-        <meta name="description" content="We are a team of designers, engineers, and strategists building premium digital products." />
-      </Helmet>
+      <SEO 
+        title="About Us" 
+        description="We are a team of designers, engineers, and strategists building premium digital products." 
+      />
 
       {/* Hero */}
       <section className="pt-32 pb-24 px-6">
