@@ -6,7 +6,7 @@ const defaultSEO = {
   description:
     'Verve Innovation builds enterprise-grade software solutions, specializing in custom web and mobile development, digital transformation, and scalable cloud architectures.',
   type: 'website',
-  image: '/og-image.jpg', // Placeholder, ensure you have an actual og-image.jpg in public/
+  image: '/OG-IMAGE.svg', // SVG used as default OG image
   url: 'https://verveinnovation.com', // Replace with actual domain
 };
 
