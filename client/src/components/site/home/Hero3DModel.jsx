@@ -81,15 +81,17 @@ function AnimatedPlaceholder({ visible }) {
 
 // ─── Hero3DModel (default export) ─────────────────────────────────────────────
 export default function Hero3DModel() {
-  const [modelReady, setModelReady] = useState(false);
-  const handleLoaded = useCallback(() => setModelReady(true), []);
+  // Model loading is temporarily disabled due to missing 3dsvg.glb
+  // const [modelReady, setModelReady] = useState(false);
+  // const handleLoaded = useCallback(() => setModelReady(true), []);
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none opacity-30 md:opacity-50 blur-[6px] flex justify-center items-center">
-      {/* CSS placeholder — shows instantly, fades out once model renders */}
-      <AnimatedPlaceholder visible={!modelReady} />
+      {/* CSS placeholder — shows instantly, staying permanently visible while model is disabled */}
+      <AnimatedPlaceholder visible={true} />
 
-      {/* Canvas wrapper — invisible until model renders its first frame */}
+      {/* Canvas wrapper — disabled to prevent 404 / JSON parsing error on missing asset */}
+      {/* 
       <div
         className="w-full h-full max-w-[750px] max-h-[750px]"
         style={{
@@ -103,7 +105,6 @@ export default function Hero3DModel() {
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <directionalLight position={[-10, -10, -5]} intensity={0.5} />
           <Environment preset="city" />
-          {/* Suspense OUTSIDE Float — correct boundary placement */}
           <Suspense fallback={null}>
             <Float speed={2} rotationIntensity={0.5} floatIntensity={2}>
               <Model onLoaded={handleLoaded} />
@@ -111,6 +112,7 @@ export default function Hero3DModel() {
           </Suspense>
         </Canvas>
       </div>
+      */}
     </div>
   );
 }
