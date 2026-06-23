@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import SEO from '../components/site/SEO';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, ChevronDown } from 'lucide-react';
 import api from '../lib/api';
 import { staggerContainer, staggerItem, fadeInUp } from '../lib/motionVariants';
 
@@ -11,14 +11,14 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "name": "Verve Innovation",
   "image": "https://verveinnovation.com/logo.png",
-  "email": "hello@verveinnovation.com.np",
-  "telephone": "+977 1 4XXXXXX",
+  "email": "info.verveinnovation@gmail.com",
+  "telephone": "+977 9712093214",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Innovation Hub, 4th Floor, Jamal",
+    "streetAddress": "Jamal",
     "addressLocality": "Kathmandu",
     "addressRegion": "Bagmati",
-    "addressCountry": "NP"
+    "addressCountry": "Nepal"
   }
 };
 
@@ -33,6 +33,18 @@ export default function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -181,20 +193,48 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="projectType" className="text-sm font-bold text-verve-text-secondary">Project Type</label>
-                  <select 
-                    id="projectType" name="projectType"
-                    value={formData.projectType} onChange={handleChange}
-                    className="w-full bg-transparent border-b border-verve-border py-3 text-verve-text-primary focus:outline-none focus:border-verve-orange transition-colors appearance-none"
+                <div className="space-y-2 relative" ref={dropdownRef}>
+                  <label className="text-sm font-bold text-verve-text-secondary">Project Type</label>
+                  <div 
+                    className={`w-full bg-transparent border-b py-3 flex justify-between items-center cursor-pointer transition-colors ${
+                      isDropdownOpen ? 'border-verve-orange' : 'border-verve-border'
+                    }`}
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   >
-                    <option value="" disabled className="bg-verve-bg-elevated text-verve-text-secondary">Select an option</option>
-                    <option value="Web Development" className="bg-verve-bg-elevated text-verve-text-primary">Web Development</option>
-                    <option value="Mobile App" className="bg-verve-bg-elevated text-verve-text-primary">Mobile App</option>
-                    <option value="UX/UI Design" className="bg-verve-bg-elevated text-verve-text-primary">UX/UI Design</option>
-                    <option value="E-commerce" className="bg-verve-bg-elevated text-verve-text-primary">E-commerce</option>
-                    <option value="Other" className="bg-verve-bg-elevated text-verve-text-primary">Other</option>
-                  </select>
+                    <span className={formData.projectType ? 'text-verve-text-primary' : 'text-verve-text-secondary'}>
+                      {formData.projectType || 'Select an option'}
+                    </span>
+                    <ChevronDown size={20} className={`text-verve-text-secondary transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                  </div>
+                  
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute z-10 w-full mt-2 bg-verve-bg-elevated border border-verve-border rounded-xl shadow-xl overflow-hidden backdrop-blur-md"
+                      >
+                        {['Web Development', 'Mobile App', 'UX/UI Design', 'E-commerce', 'Other'].map((option) => (
+                          <div
+                            key={option}
+                            className={`px-4 py-3 cursor-pointer transition-colors duration-200 hover:bg-verve-border ${
+                              formData.projectType === option 
+                                ? 'text-verve-orange font-bold bg-verve-orange/5' 
+                                : 'text-verve-text-primary'
+                            }`}
+                            onClick={() => {
+                              setFormData(prev => ({ ...prev, projectType: option }));
+                              setIsDropdownOpen(false);
+                            }}
+                          >
+                            {option}
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 <div className="space-y-2">
