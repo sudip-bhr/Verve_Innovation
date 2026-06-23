@@ -26,9 +26,7 @@ export default function ImageUploader({ value, onChange, label = 'Upload Image' 
     formData.append('image', file);
 
     try {
-      const response = await api.post('/upload', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
+      const response = await api.post('/upload', formData);
       if (response.data.success) {
         // Backend returns /uploads/filename.ext. We might need the full URL or just the path
         onChange(response.data.data.url);
