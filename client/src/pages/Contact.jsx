@@ -189,11 +189,11 @@ export default function Contact() {
                     className="w-full bg-transparent border-b border-verve-border py-3 text-verve-text-primary focus:outline-none focus:border-verve-orange transition-colors appearance-none"
                   >
                     <option value="" disabled className="bg-verve-bg-elevated text-verve-text-secondary">Select an option</option>
-                    <option value="Web Development" className="bg-verve-bg-elevated text-black dark:text-white">Web Development</option>
-                    <option value="Mobile App" className="bg-verve-bg-elevated text-black dark:text-white">Mobile App</option>
-                    <option value="UX/UI Design" className="bg-verve-bg-elevated text-black dark:text-white">UX/UI Design</option>
-                    <option value="E-commerce" className="bg-verve-bg-elevated text-black dark:text-white">E-commerce</option>
-                    <option value="Other" className="bg-verve-bg-elevated text-black dark:text-white">Other</option>
+                    <option value="Web Development" className="bg-verve-bg-elevated text-verve-text-primary">Web Development</option>
+                    <option value="Mobile App" className="bg-verve-bg-elevated text-verve-text-primary">Mobile App</option>
+                    <option value="UX/UI Design" className="bg-verve-bg-elevated text-verve-text-primary">UX/UI Design</option>
+                    <option value="E-commerce" className="bg-verve-bg-elevated text-verve-text-primary">E-commerce</option>
+                    <option value="Other" className="bg-verve-bg-elevated text-verve-text-primary">Other</option>
                   </select>
                 </div>
 
