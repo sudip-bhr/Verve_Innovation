@@ -11,14 +11,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-verve-bg-secondary pt-20 pb-8 px-6 md:px-12 lg:px-24">
+    <footer className="bg-verve-bg-secondary pt-12 pb-6 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Left Column - Logo & Tagline */}
           <div className="flex flex-col items-start">
-            <div className="flex items-center mb-6">
-              <img src={darkLogo} alt="Verve Innovation" className="hidden dark:block h-24 w-auto" />
-              <img src={lightLogo} alt="Verve Innovation" className="block dark:hidden h-24 w-auto" />
+            <div className="flex items-center mb-4">
+              <img src={darkLogo} alt="Verve Innovation" className="hidden dark:block h-16 w-auto" />
+              <img src={lightLogo} alt="Verve Innovation" className="block dark:hidden h-16 w-auto" />
             </div>
             <p className="text-verve-text-secondary font-body max-w-sm text-sm leading-relaxed">
               Designing digital experiences that define the future of premium technology.
@@ -26,12 +26,12 @@ export default function Footer() {
           </div>
 
           {/* Right Column - Navigation */}
-          <div className="flex flex-col items-start md:items-end space-y-4">
+          <div className="flex flex-col items-start md:items-end space-y-3 mt-4 md:mt-0">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}
-                className="font-display text-2xl md:text-3xl lg:text-4xl hover:text-verve-orange transition-colors text-verve-text-primary"
+                className="font-body text-base md:text-lg hover:text-verve-orange transition-colors text-verve-text-primary"
               >
                 {link.name}
               </NavLink>
@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
 
         {/* Separator */}
-        <div className="h-px w-full bg-verve-border mb-8" />
+        <div className="h-px w-full bg-verve-border mb-6" />
 
         {/* Bottom Row */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-sm font-body text-verve-text-secondary space-y-4 md:space-y-0">

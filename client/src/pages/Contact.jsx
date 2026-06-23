@@ -219,7 +219,7 @@ export default function Contact() {
                         {['Web Development', 'Mobile App', 'UX/UI Design', 'E-commerce', 'Other'].map((option) => (
                           <div
                             key={option}
-                            className={`px-4 py-3 cursor-pointer transition-colors duration-200 hover:bg-verve-border ${
+                            className={`px-4 py-3 cursor-pointer transition-colors duration-200 hover:bg-verve-bg-elevated ${
                               formData.projectType === option 
                                 ? 'text-verve-orange font-bold bg-verve-orange/5' 
                                 : 'text-verve-text-primary'
