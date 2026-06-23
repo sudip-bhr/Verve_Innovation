@@ -38,7 +38,7 @@ export default function About() {
               variants={staggerItem}
               className="text-5xl md:text-7xl font-display font-bold tracking-tight text-verve-text-primary mb-6"
             >
-              We believe in the power of <span className="font-script italic font-normal text-verve-accent-blue">design</span> to transform business.
+              We believe in the power of <span className="font-script italic font-normal text-verve-blue">design</span> to transform business.
             </motion.h1>
             <motion.p 
               variants={staggerItem}

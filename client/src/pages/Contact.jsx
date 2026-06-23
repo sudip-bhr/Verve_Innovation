@@ -104,7 +104,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-verve-text-primary mb-1">Email Us</h4>
-                    <p className="text-verve-text-secondary font-body">hello@verveinnovation.com.np</p>
+                    <p className="text-verve-text-secondary font-body">info@verveinnovation@gmail.com</p>
                   </div>
                 </div>
                 
@@ -114,7 +114,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-verve-text-primary mb-1">Visit Us</h4>
-                    <p className="text-verve-text-secondary font-body">Kathmandu, Nepal<br />Innovation Hub, 4th Floor</p>
+                    <p className="text-verve-text-secondary font-body">Kathmandu, Nepal<br />Jamal</p>
                   </div>
                 </div>
                 
@@ -124,7 +124,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-verve-text-primary mb-1">Call Us</h4>
-                    <p className="text-verve-text-secondary font-body">+977 1 4XXXXXX</p>
+                    <p className="text-verve-text-secondary font-body">+977 9712093214</p>
                   </div>
                 </div>
               </motion.div>
