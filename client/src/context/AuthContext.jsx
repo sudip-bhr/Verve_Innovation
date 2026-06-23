@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import api from '../lib/api';
+import api, { setAuthToken, getAuthToken, clearAuthToken } from '../lib/api';
 
 const AuthContext = createContext();
 
@@ -8,9 +8,15 @@ export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Check current session on mount
+  // Check current session on mount (using stored token)
   useEffect(() => {
     const checkAuth = async () => {
+      const token = getAuthToken();
+      if (!token) {
+        setIsLoading(false);
+        return;
+      }
+
       try {
         const response = await api.get('/auth/me');
         if (response.data.success) {
@@ -18,7 +24,8 @@ export function AuthProvider({ children }) {
           setIsAuthenticated(true);
         }
       } catch (error) {
-        // Not authenticated
+        // Token invalid or expired — clear it
+        clearAuthToken();
         setUser(null);
         setIsAuthenticated(false);
       } finally {
@@ -33,6 +40,8 @@ export function AuthProvider({ children }) {
     try {
       const response = await api.post('/auth/login', { email, password });
       if (response.data.success) {
+        // Store the JWT from the response body
+        setAuthToken(response.data.token);
         setIsAuthenticated(true);
         // Fetch user data after login
         const userRes = await api.get('/auth/me');
@@ -51,6 +60,7 @@ export function AuthProvider({ children }) {
     try {
       await api.post('/auth/logout');
     } finally {
+      clearAuthToken();
       setUser(null);
       setIsAuthenticated(false);
     }
@@ -64,3 +74,4 @@ export function AuthProvider({ children }) {
 }
 
 export const useAuth = () => useContext(AuthContext);
+
